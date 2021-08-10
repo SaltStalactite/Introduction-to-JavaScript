@@ -19,7 +19,8 @@ Do the following:
 
    HINT: no function required
 */
-
+const votingAge = 18
+console.log('task1a', true);
 
 
 /*
@@ -32,8 +33,12 @@ Do the following:
 
    HINT: no function required
 */
-
-
+let number1 = 4;
+let number2 = 5;
+if (number2 > number1) {
+  number1 += number1
+}
+console.log('task1b', number1)
 
 
 
@@ -47,8 +52,9 @@ Do the following:
 
    HINT: look up the Number method
 */
-
-
+let newString = '1999';
+newString = Number(newString);
+console.log(`task1c`, newString);
 
 
 /*
@@ -60,9 +66,10 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/) {
-  /*add your code here*/
+function multiply(a, b) {
+  return a * b;
 }
+console.log(`task 1d`, multiply(2, 6));
 
 
 
@@ -76,9 +83,10 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/) {
-  /*add your code here*/
+function dogYears(age) {
+  return age * 7;
 }
+console.log('task 2', dogYears(5));
 
 
 
@@ -156,10 +164,42 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer) {
-  /*add your code here*/
+//let user = Math.floor(Math.random() * 3);
+let computer = Math.floor(Math.random() * 3);
+if (computer === 0) {
+  computer = 'rock';
+} else if (computer === 1) {
+  computer = 'paper';
+} else if (computer === 2) {
+  computer = 'scissors';
 }
+function game(user, computer) {
+  /*if (user === 0) {
+    return 'rock';
+  } else if (user === 1) {
+    return 'paper';
+  } else if (user === 2) {
+    return 'scissors';
+  } */
 
+
+  if (user === computer) {
+    return `it's a tie`;
+  }
+  else if (user === 'rock' && computer === 'paper') {
+    return `you lose!`
+  }
+  else if (user === 'paper' && computer === 'scissors') {
+    return 'you lose!'
+  }
+  else if (user === 'scissors' && computer === 'rock') {
+    return 'you lose!'
+  }
+  else {
+    return 'you win!'
+  }
+}
+console.log('task 4', game('paper', computer));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -173,10 +213,10 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/) {
-  /*add your code here*/
+function miles(kilometers) {
+  return kilometers * .621371;
 }
-
+console.log('task 5a', miles(5));
 
 
 //Task 5b - Feet to CM
@@ -187,11 +227,10 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/) {
-  /*add your code here*/
+function feet(centimeters) {
+  return centimeters / 30.48;
 }
-
-
+console.log('task 5b', feet(80));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -203,10 +242,12 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/) {
-  /*add your code here*/
+function annoyingSong(number) {
+  for (let i = number; i > 1; i--) {
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`;
+  }
 }
-
+console.log('task 6', annoyingSong(99));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -215,7 +256,7 @@ function annoyingSong(/*add your code here*/) {
 Using the grade function below do the following: 
 1. Receive a score out of 100 
 2. Return the corresponding letter grade following this grade scale:
-
+ 
  90-100 should return 'you got an A' 
  80-89 should return 'you got a B'
  70-79 should return 'you got a C'
@@ -223,10 +264,20 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */) {
-  /*Your Code here */
+function grade(score) {
+  if (score >= 90 && score <= 100) {
+    return `you got an A`;
+  } else if (score >= 80 && score <= 89) {
+    return `you got a B`;
+  } else if (score >= 70 && score <= 79) {
+    return `you got a C`;
+  } else if (score >= 60 && score <= 69) {
+    return `you got a D`;
+  } else {
+    return `you got an F`;
+  }
 }
-
+console.log('task 7', grade(100));
 
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
@@ -236,13 +287,13 @@ function grade(/*Your Code here */) {
 Using the vowelCounter function below do the following:
 1. Receive a string as a parameter
 2. Count and return the number of vowels within that string.  It should handle both capitalized and uncapitalized vowels.
-
+ 
 HINT - you may need to study tomorrow's content on arrays 
 HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
+function vowelCounter(stringParam) {
   /*add your code here*/
 }
 
